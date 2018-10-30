@@ -7,26 +7,29 @@ variable "delimiter" {
 variable "bu" {
   description = "Business unit (ex: `Investor(INV)`, `Advisor(ADV)`, Homeoffice(HOO)` )"
   type        = "string"
-  default     = true
 }
  
 variable "region" {
   description = "Cloud provider region and availability zones used `us-east-01` "
+  type        = "map"
+  default     = {
+    "us-east-1" = "eu1"
+  }
+}
+
+variable "shortregion"
+  description = "Short form of region based on region"
   type        = "string"
-  default     = true
- 
 }
  
 variable "environment" {
   description = "Environment (ex: `dev`, `qa`, `stage`, `prod`)"
   type        = "string"
-  default     = true
 }
  
 variable "resource" {
   description = "Cloud resource (ex: `EC2`, `S3`, `ELB`, `VPC`) "
   type        =  "string"
-  default     =  true
 }
  
 variable "state" {
