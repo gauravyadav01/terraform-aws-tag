@@ -17,14 +17,23 @@ variable "region" {
   }
 }
 
-variable "shortregion"
+variable "shortregion" {
   description = "Short form of region based on region"
   type        = "string"
 }
  
-variable "environment" {
+variable "env" {
   description = "Environment (ex: `dev`, `qa`, `stage`, `prod`)"
   type        = "string"
+}
+
+variable "shortenv" {
+  description = "Short form of Environment"
+  type        = "map"
+  default     = {
+    "prod"    = "c01"
+    "nonprod" = "c00"
+  }
 }
  
 variable "resource" {
