@@ -8,18 +8,29 @@ variable "bu" {
   description = "Business unit (ex: `Investor(INV)`, `Advisor(ADV)`, Homeoffice(HOO)` )"
   type        = "string"
 }
- 
-variable "region" {
-  description = "Cloud provider region and availability zones used `us-east-01` "
+
+variable "shortbu" {
+  description = "Business unit (ex: `Investor(INV)`, `Advisor(ADV)`, Homeoffice(HOO)` )"
   type        = "map"
-  default     = {
-    "us-east-1" = "eu1"
-  }
+   default    = {
+     "coreservice" = "cos"
+     "investor"     = "inv"
+     "advisor"      = "adv"
+     "homeoffice"   = "hoo"
+   }
+}
+
+variable "region" {
+  description = "Short form of region based on region"
+  type        = "string"
 }
 
 variable "shortregion" {
-  description = "Short form of region based on region"
-  type        = "string"
+  description = "Cloud provider region and availability zones used `us-east-01` "
+  type        = "map"
+  default     = {
+    "us-east-1" = "ue1"
+  }
 }
  
 variable "env" {
@@ -64,3 +75,4 @@ variable "tags" {
   type        = "map"
   default     = {}
 }
+
